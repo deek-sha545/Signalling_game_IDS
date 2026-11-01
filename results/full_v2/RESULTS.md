@@ -1,6 +1,6 @@
 # Signaling-game results (full_v2 mode)
 
-Completed jobs: 74 (dataset x budget x seed). Oracle: ddpg. Defender loss = expected discounted loss per episode, lower is better. n = number of independent seeds.
+Completed jobs: 82 (dataset x budget x seed). Oracle: ddpg. Defender loss = expected discounted loss per episode, lower is better. n = number of independent seeds.
 
 ## A. Defenders against FIXED type-based attackers (conditions a, b, c + baselines)
 
@@ -24,15 +24,15 @@ Completed jobs: 74 (dataset x budget x seed). Oracle: ddpg. Defender loss = expe
 | fraud | 20.000 | baseline_fraud_rule | 9 | 194.526 | 0.000 | 194.526 | 194.526 |
 | fraud | 20.000 | baseline_aics | 9 | 215.838 | 0.000 | 215.838 | 215.838 |
 | fraud | 20.000 | baseline_icde | 9 | 216.548 | 0.000 | 216.548 | 216.548 |
-| fraud | 30.000 | BLIND | 8 | 158.212 | 8.509 | 151.099 | 165.326 |
-| fraud | 30.000 | INFORMED | 8 | 134.481 | 2.438 | 132.443 | 136.520 |
-| fraud | 30.000 | BELIEF | 8 | 149.686 | 2.445 | 147.642 | 151.730 |
-| fraud | 30.000 | baseline_uniform | 8 | 165.351 | 0.000 | 165.351 | 165.351 |
-| fraud | 30.000 | baseline_newest | 8 | 165.351 | 0.000 | 165.351 | 165.351 |
-| fraud | 30.000 | baseline_proportion | 8 | 184.536 | 0.000 | 184.536 | 184.536 |
-| fraud | 30.000 | baseline_fraud_rule | 8 | 157.033 | 0.000 | 157.033 | 157.033 |
-| fraud | 30.000 | baseline_aics | 8 | 172.658 | 0.000 | 172.658 | 172.658 |
-| fraud | 30.000 | baseline_icde | 8 | 193.422 | 0.000 | 193.422 | 193.422 |
+| fraud | 30.000 | BLIND | 9 | 156.982 | 8.773 | 150.239 | 163.726 |
+| fraud | 30.000 | INFORMED | 9 | 134.698 | 2.372 | 132.875 | 136.521 |
+| fraud | 30.000 | BELIEF | 9 | 149.940 | 2.410 | 148.087 | 151.792 |
+| fraud | 30.000 | baseline_uniform | 9 | 165.351 | 0.000 | 165.351 | 165.351 |
+| fraud | 30.000 | baseline_newest | 9 | 165.351 | 0.000 | 165.351 | 165.351 |
+| fraud | 30.000 | baseline_proportion | 9 | 184.536 | 0.000 | 184.536 | 184.536 |
+| fraud | 30.000 | baseline_fraud_rule | 9 | 157.033 | 0.000 | 157.033 | 157.033 |
+| fraud | 30.000 | baseline_aics | 9 | 172.658 | 0.000 | 172.658 | 172.658 |
+| fraud | 30.000 | baseline_icde | 9 | 193.422 | 0.000 | 193.422 | 193.422 |
 | suricata | 500.000 | BLIND | 8 | 70.443 | 1.766 | 68.967 | 71.920 |
 | suricata | 500.000 | INFORMED | 8 | 61.278 | 0.989 | 60.451 | 62.105 |
 | suricata | 500.000 | BELIEF | 8 | 62.320 | 1.194 | 61.323 | 63.318 |
@@ -40,73 +40,73 @@ Completed jobs: 74 (dataset x budget x seed). Oracle: ddpg. Defender loss = expe
 | suricata | 500.000 | baseline_newest | 8 | 94.380 | 0.000 | 94.380 | 94.380 |
 | suricata | 500.000 | baseline_proportion | 8 | 96.349 | 0.000 | 96.349 | 96.349 |
 | suricata | 500.000 | baseline_suricata_rule | 8 | 88.549 | 0.000 | 88.549 | 88.549 |
-| suricata | 1000.000 | BLIND | 7 | 55.954 | 2.152 | 53.964 | 57.944 |
-| suricata | 1000.000 | INFORMED | 7 | 44.461 | 1.287 | 43.271 | 45.651 |
-| suricata | 1000.000 | BELIEF | 7 | 45.097 | 0.525 | 44.612 | 45.583 |
-| suricata | 1000.000 | baseline_uniform | 7 | 79.490 | 0.000 | 79.490 | 79.490 |
-| suricata | 1000.000 | baseline_newest | 7 | 79.490 | 0.000 | 79.490 | 79.490 |
-| suricata | 1000.000 | baseline_proportion | 7 | 82.549 | 0.000 | 82.549 | 82.549 |
-| suricata | 1000.000 | baseline_suricata_rule | 7 | 76.844 | 0.000 | 76.844 | 76.844 |
-| suricata | 1500.000 | BLIND | 7 | 48.958 | 1.541 | 47.533 | 50.384 |
-| suricata | 1500.000 | INFORMED | 7 | 37.584 | 1.585 | 36.118 | 39.049 |
-| suricata | 1500.000 | BELIEF | 7 | 38.388 | 0.634 | 37.802 | 38.974 |
-| suricata | 1500.000 | baseline_uniform | 7 | 69.908 | 0.000 | 69.908 | 69.908 |
-| suricata | 1500.000 | baseline_newest | 7 | 69.908 | 0.000 | 69.908 | 69.908 |
-| suricata | 1500.000 | baseline_proportion | 7 | 73.941 | 0.000 | 73.941 | 73.941 |
-| suricata | 1500.000 | baseline_suricata_rule | 7 | 69.176 | 0.000 | 69.176 | 69.176 |
-| snort | 500.000 | BLIND | 9 | 33.046 | 1.640 | 31.785 | 34.306 |
-| snort | 500.000 | INFORMED | 9 | 32.367 | 0.039 | 32.336 | 32.397 |
-| snort | 500.000 | BELIEF | 9 | 32.445 | 0.256 | 32.249 | 32.642 |
-| snort | 500.000 | baseline_uniform | 9 | 32.349 | 0.000 | 32.349 | 32.349 |
-| snort | 500.000 | baseline_newest | 9 | 32.349 | 0.000 | 32.349 | 32.349 |
-| snort | 500.000 | baseline_proportion | 9 | 59.072 | 0.000 | 59.072 | 59.072 |
-| snort | 500.000 | baseline_snort_rule | 9 | 38.004 | 0.000 | 38.004 | 38.004 |
-| snort | 1000.000 | BLIND | 9 | 30.116 | 2.893 | 27.893 | 32.340 |
-| snort | 1000.000 | INFORMED | 9 | 29.394 | 1.155 | 28.507 | 30.282 |
-| snort | 1000.000 | BELIEF | 9 | 28.917 | 0.002 | 28.916 | 28.919 |
-| snort | 1000.000 | baseline_uniform | 9 | 28.916 | 0.000 | 28.916 | 28.916 |
-| snort | 1000.000 | baseline_newest | 9 | 28.916 | 0.000 | 28.916 | 28.916 |
-| snort | 1000.000 | baseline_proportion | 9 | 51.322 | 0.000 | 51.322 | 51.322 |
-| snort | 1000.000 | baseline_snort_rule | 9 | 38.004 | 0.000 | 38.004 | 38.004 |
-| snort | 1500.000 | BLIND | 8 | 26.837 | 0.705 | 26.247 | 27.427 |
-| snort | 1500.000 | INFORMED | 8 | 26.588 | 0.000 | 26.588 | 26.588 |
-| snort | 1500.000 | BELIEF | 8 | 26.588 | 0.000 | 26.588 | 26.588 |
-| snort | 1500.000 | baseline_uniform | 8 | 26.588 | 0.000 | 26.588 | 26.588 |
-| snort | 1500.000 | baseline_newest | 8 | 26.588 | 0.000 | 26.588 | 26.588 |
-| snort | 1500.000 | baseline_proportion | 8 | 45.903 | 0.000 | 45.903 | 45.903 |
-| snort | 1500.000 | baseline_snort_rule | 8 | 38.004 | 0.000 | 38.004 | 38.004 |
+| suricata | 1000.000 | BLIND | 9 | 55.805 | 2.057 | 54.223 | 57.386 |
+| suricata | 1000.000 | INFORMED | 9 | 44.287 | 1.172 | 43.386 | 45.188 |
+| suricata | 1000.000 | BELIEF | 9 | 45.359 | 0.892 | 44.673 | 46.045 |
+| suricata | 1000.000 | baseline_uniform | 9 | 79.490 | 0.000 | 79.490 | 79.490 |
+| suricata | 1000.000 | baseline_newest | 9 | 79.490 | 0.000 | 79.490 | 79.490 |
+| suricata | 1000.000 | baseline_proportion | 9 | 82.549 | 0.000 | 82.549 | 82.549 |
+| suricata | 1000.000 | baseline_suricata_rule | 9 | 76.844 | 0.000 | 76.844 | 76.844 |
+| suricata | 1500.000 | BLIND | 9 | 48.661 | 1.717 | 47.341 | 49.980 |
+| suricata | 1500.000 | INFORMED | 9 | 37.459 | 1.411 | 36.375 | 38.544 |
+| suricata | 1500.000 | BELIEF | 9 | 38.473 | 0.609 | 38.005 | 38.941 |
+| suricata | 1500.000 | baseline_uniform | 9 | 69.908 | 0.000 | 69.908 | 69.908 |
+| suricata | 1500.000 | baseline_newest | 9 | 69.908 | 0.000 | 69.908 | 69.908 |
+| suricata | 1500.000 | baseline_proportion | 9 | 73.941 | 0.000 | 73.941 | 73.941 |
+| suricata | 1500.000 | baseline_suricata_rule | 9 | 69.176 | 0.000 | 69.176 | 69.176 |
+| snort | 500.000 | BLIND | 10 | 32.977 | 1.562 | 31.859 | 34.094 |
+| snort | 500.000 | INFORMED | 10 | 32.366 | 0.037 | 32.339 | 32.392 |
+| snort | 500.000 | BELIEF | 10 | 32.437 | 0.242 | 32.264 | 32.611 |
+| snort | 500.000 | baseline_uniform | 10 | 32.349 | 0.000 | 32.349 | 32.349 |
+| snort | 500.000 | baseline_newest | 10 | 32.349 | 0.000 | 32.349 | 32.349 |
+| snort | 500.000 | baseline_proportion | 10 | 59.072 | 0.000 | 59.072 | 59.072 |
+| snort | 500.000 | baseline_snort_rule | 10 | 38.004 | 0.000 | 38.004 | 38.004 |
+| snort | 1000.000 | BLIND | 10 | 29.997 | 2.754 | 28.027 | 31.967 |
+| snort | 1000.000 | INFORMED | 10 | 29.347 | 1.099 | 28.560 | 30.133 |
+| snort | 1000.000 | BELIEF | 10 | 28.917 | 0.002 | 28.916 | 28.919 |
+| snort | 1000.000 | baseline_uniform | 10 | 28.916 | 0.000 | 28.916 | 28.916 |
+| snort | 1000.000 | baseline_newest | 10 | 28.916 | 0.000 | 28.916 | 28.916 |
+| snort | 1000.000 | baseline_proportion | 10 | 51.322 | 0.000 | 51.322 | 51.322 |
+| snort | 1000.000 | baseline_snort_rule | 10 | 38.004 | 0.000 | 38.004 | 38.004 |
+| snort | 1500.000 | BLIND | 9 | 26.809 | 0.665 | 26.298 | 27.321 |
+| snort | 1500.000 | INFORMED | 9 | 27.057 | 1.409 | 25.974 | 28.140 |
+| snort | 1500.000 | BELIEF | 9 | 26.588 | 0.000 | 26.588 | 26.588 |
+| snort | 1500.000 | baseline_uniform | 9 | 26.588 | 0.000 | 26.588 | 26.588 |
+| snort | 1500.000 | baseline_newest | 9 | 26.588 | 0.000 | 26.588 | 26.588 |
+| snort | 1500.000 | baseline_proportion | 9 | 45.903 | 0.000 | 45.903 | 45.903 |
+| snort | 1500.000 | baseline_snort_rule | 9 | 38.004 | 0.000 | 38.004 | 38.004 |
 
 Paired tests (negative mean difference = first defender has LOWER loss):
 
 | dataset | budget | comparison | n | mean diff | Wilcoxon p | t-test p | Wilcoxon p (Holm) |
 |---|---|---|---|---|---|---|---|
 | fraud | 10.000 | BELIEF - BLIND | 9 | -1.167 | 0.612 | 0.637 | 1.000 |
-| fraud | 10.000 | INFORMED - BLIND | 9 | -8.244 | 0.025 | 0.028 | 0.326 |
-| fraud | 10.000 | BELIEF - INFORMED | 9 | 7.078 | 0.017 | 0.002 | 0.297 |
-| fraud | 20.000 | BELIEF - BLIND | 9 | -6.033 | 0.020 | 0.007 | 0.297 |
-| fraud | 20.000 | INFORMED - BLIND | 9 | -24.364 | 0.004 | 0.000 | 0.102 |
-| fraud | 20.000 | BELIEF - INFORMED | 9 | 18.331 | 0.004 | 0.000 | 0.102 |
-| fraud | 30.000 | BELIEF - BLIND | 8 | -8.526 | 0.008 | 0.008 | 0.188 |
-| fraud | 30.000 | INFORMED - BLIND | 8 | -23.731 | 0.008 | 0.000 | 0.188 |
-| fraud | 30.000 | BELIEF - INFORMED | 8 | 15.205 | 0.008 | 0.000 | 0.188 |
-| suricata | 500.000 | BELIEF - BLIND | 8 | -8.123 | 0.008 | 0.000 | 0.188 |
-| suricata | 500.000 | INFORMED - BLIND | 8 | -9.165 | 0.008 | 0.000 | 0.188 |
+| fraud | 10.000 | INFORMED - BLIND | 9 | -8.244 | 0.025 | 0.028 | 0.376 |
+| fraud | 10.000 | BELIEF - INFORMED | 9 | 7.078 | 0.017 | 0.002 | 0.294 |
+| fraud | 20.000 | BELIEF - BLIND | 9 | -6.033 | 0.020 | 0.007 | 0.312 |
+| fraud | 20.000 | INFORMED - BLIND | 9 | -24.364 | 0.004 | 0.000 | 0.105 |
+| fraud | 20.000 | BELIEF - INFORMED | 9 | 18.331 | 0.004 | 0.000 | 0.105 |
+| fraud | 30.000 | BELIEF - BLIND | 9 | -7.043 | 0.027 | 0.024 | 0.383 |
+| fraud | 30.000 | INFORMED - BLIND | 9 | -22.284 | 0.004 | 0.000 | 0.105 |
+| fraud | 30.000 | BELIEF - INFORMED | 9 | 15.242 | 0.004 | 0.000 | 0.105 |
+| suricata | 500.000 | BELIEF - BLIND | 8 | -8.123 | 0.008 | 0.000 | 0.148 |
+| suricata | 500.000 | INFORMED - BLIND | 8 | -9.165 | 0.008 | 0.000 | 0.148 |
 | suricata | 500.000 | BELIEF - INFORMED | 8 | 1.042 | 0.148 | 0.080 | 1.000 |
-| suricata | 1000.000 | BELIEF - BLIND | 7 | -10.857 | 0.016 | 0.000 | 0.297 |
-| suricata | 1000.000 | INFORMED - BLIND | 7 | -11.493 | 0.016 | 0.000 | 0.297 |
-| suricata | 1000.000 | BELIEF - INFORMED | 7 | 0.636 | 0.297 | 0.268 | 1.000 |
-| suricata | 1500.000 | BELIEF - BLIND | 7 | -10.571 | 0.016 | 0.000 | 0.297 |
-| suricata | 1500.000 | INFORMED - BLIND | 7 | -11.375 | 0.016 | 0.000 | 0.297 |
-| suricata | 1500.000 | BELIEF - INFORMED | 7 | 0.804 | 0.375 | 0.296 | 1.000 |
-| snort | 500.000 | BELIEF - BLIND | 9 | -0.600 | 0.652 | 0.322 | 1.000 |
-| snort | 500.000 | INFORMED - BLIND | 9 | -0.679 | 0.055 | 0.249 | 0.656 |
-| snort | 500.000 | BELIEF - INFORMED | 9 | 0.079 | 0.484 | 0.394 | 1.000 |
-| snort | 1000.000 | BELIEF - BLIND | 9 | -1.199 | 0.063 | 0.249 | 0.693 |
-| snort | 1000.000 | INFORMED - BLIND | 9 | -0.722 | 0.499 | 0.532 | 1.000 |
-| snort | 1000.000 | BELIEF - INFORMED | 9 | -0.477 | 0.416 | 0.250 | 1.000 |
-| snort | 1500.000 | BELIEF - BLIND | 8 | -0.249 | 0.317 | 0.351 | 1.000 |
-| snort | 1500.000 | INFORMED - BLIND | 8 | -0.249 | 0.317 | 0.351 | 1.000 |
-| snort | 1500.000 | BELIEF - INFORMED | 8 | 0.000 | nan | nan | nan |
+| suricata | 1000.000 | BELIEF - BLIND | 9 | -10.446 | 0.004 | 0.000 | 0.105 |
+| suricata | 1000.000 | INFORMED - BLIND | 9 | -11.518 | 0.004 | 0.000 | 0.105 |
+| suricata | 1000.000 | BELIEF - INFORMED | 9 | 1.072 | 0.098 | 0.070 | 1.000 |
+| suricata | 1500.000 | BELIEF - BLIND | 9 | -10.188 | 0.004 | 0.000 | 0.105 |
+| suricata | 1500.000 | INFORMED - BLIND | 9 | -11.201 | 0.004 | 0.000 | 0.105 |
+| suricata | 1500.000 | BELIEF - INFORMED | 9 | 1.014 | 0.164 | 0.114 | 1.000 |
+| snort | 500.000 | BELIEF - BLIND | 10 | -0.539 | 0.770 | 0.319 | 1.000 |
+| snort | 500.000 | INFORMED - BLIND | 10 | -0.611 | 0.064 | 0.247 | 0.773 |
+| snort | 500.000 | BELIEF - INFORMED | 10 | 0.071 | 0.314 | 0.388 | 1.000 |
+| snort | 1000.000 | BELIEF - BLIND | 10 | -1.080 | 0.036 | 0.246 | 0.464 |
+| snort | 1000.000 | INFORMED - BLIND | 10 | -0.651 | 0.401 | 0.528 | 1.000 |
+| snort | 1000.000 | BELIEF - INFORMED | 10 | -0.429 | 0.293 | 0.248 | 1.000 |
+| snort | 1500.000 | BELIEF - BLIND | 9 | -0.222 | 0.180 | 0.346 | 1.000 |
+| snort | 1500.000 | INFORMED - BLIND | 9 | 0.248 | 0.655 | 0.661 | 1.000 |
+| snort | 1500.000 | BELIEF - INFORMED | 9 | -0.470 | 0.317 | 0.347 | 1.000 |
 
 ## B. Equilibrium (double oracle) results: zero-sum vs general-sum vs signaling
 
@@ -124,23 +124,23 @@ Caution: these are values of DIFFERENT games (the attacker objective differs bet
 | fraud | 10.000 | SIG | 9 | 253.501 | 1.444 | 252.391 | 254.611 | 4.333 | 0.000 |
 | fraud | 20.000 | ZS_BLIND | 9 | 222.324 | 5.750 | 217.904 | 226.744 | 3.667 | 0.000 |
 | fraud | 20.000 | SIG | 9 | 220.633 | 2.787 | 218.491 | 222.775 | 3.667 | 0.000 |
-| fraud | 30.000 | ZS_BLIND | 8 | 187.512 | 1.920 | 185.907 | 189.117 | 3.750 | 0.000 |
-| fraud | 30.000 | SIG | 8 | 184.301 | 4.615 | 180.442 | 188.159 | 4.375 | 0.033 |
+| fraud | 30.000 | ZS_BLIND | 9 | 186.965 | 2.434 | 185.094 | 188.835 | 3.556 | 0.000 |
+| fraud | 30.000 | SIG | 9 | 183.955 | 4.441 | 180.541 | 187.368 | 4.556 | 0.030 |
 | suricata | 500.000 | ZS_BLIND | 8 | 37.533 | 1.880 | 35.961 | 39.104 | 4.750 | 0.000 |
 | suricata | 500.000 | SIG | 8 | 36.956 | 0.211 | 36.780 | 37.133 | 4.750 | 0.000 |
-| suricata | 1000.000 | ZS_BLIND | 7 | 34.141 | 0.195 | 33.961 | 34.321 | 4.000 | 0.000 |
-| suricata | 1000.000 | SIG | 7 | 34.098 | 0.316 | 33.806 | 34.390 | 4.714 | 0.000 |
-| suricata | 1500.000 | ZS_BLIND | 7 | 32.956 | 0.903 | 32.121 | 33.792 | 5.571 | 0.000 |
-| suricata | 1500.000 | SIG | 7 | 33.718 | 1.324 | 32.493 | 34.943 | 4.286 | 0.000 |
-| snort | 500.000 | ZS_BLIND | 9 | 8.143 | 0.000 | 8.143 | 8.143 | 3.111 | 1.000 |
-| snort | 500.000 | GS_BLIND | 9 | 8.143 | 0.000 | 8.143 | 8.143 | 3.111 | 1.000 |
-| snort | 500.000 | SIG | 9 | 8.143 | 0.000 | 8.143 | 8.143 | 3.111 | 1.000 |
-| snort | 1000.000 | ZS_BLIND | 9 | 4.796 | 0.000 | 4.796 | 4.796 | 3.111 | 1.000 |
-| snort | 1000.000 | GS_BLIND | 9 | 4.796 | 0.000 | 4.796 | 4.796 | 3.333 | 1.000 |
-| snort | 1000.000 | SIG | 9 | 4.796 | 0.000 | 4.796 | 4.796 | 3.333 | 1.000 |
-| snort | 1500.000 | ZS_BLIND | 8 | 3.111 | 0.000 | 3.111 | 3.111 | 3.125 | 1.000 |
-| snort | 1500.000 | GS_BLIND | 8 | 3.111 | 0.000 | 3.111 | 3.111 | 3.000 | 1.000 |
-| snort | 1500.000 | SIG | 8 | 3.111 | 0.000 | 3.111 | 3.111 | 3.000 | 1.000 |
+| suricata | 1000.000 | ZS_BLIND | 9 | 34.151 | 0.171 | 34.020 | 34.282 | 3.778 | 0.000 |
+| suricata | 1000.000 | SIG | 9 | 34.067 | 0.395 | 33.763 | 34.370 | 4.778 | 0.000 |
+| suricata | 1500.000 | ZS_BLIND | 9 | 33.041 | 0.835 | 32.400 | 33.683 | 5.333 | 0.000 |
+| suricata | 1500.000 | SIG | 9 | 33.788 | 1.169 | 32.890 | 34.686 | 4.222 | 0.000 |
+| snort | 500.000 | ZS_BLIND | 10 | 8.143 | 0.000 | 8.143 | 8.143 | 3.200 | 1.000 |
+| snort | 500.000 | GS_BLIND | 10 | 8.143 | 0.000 | 8.143 | 8.143 | 3.000 | 1.000 |
+| snort | 500.000 | SIG | 10 | 8.143 | 0.000 | 8.143 | 8.143 | 3.200 | 1.000 |
+| snort | 1000.000 | ZS_BLIND | 10 | 4.796 | 0.000 | 4.796 | 4.796 | 3.200 | 1.000 |
+| snort | 1000.000 | GS_BLIND | 10 | 4.796 | 0.000 | 4.796 | 4.796 | 3.200 | 1.000 |
+| snort | 1000.000 | SIG | 10 | 4.796 | 0.000 | 4.796 | 4.796 | 3.200 | 1.000 |
+| snort | 1500.000 | ZS_BLIND | 9 | 3.111 | 0.000 | 3.111 | 3.111 | 3.222 | 1.000 |
+| snort | 1500.000 | GS_BLIND | 9 | 3.111 | 0.000 | 3.111 | 3.111 | 3.111 | 1.000 |
+| snort | 1500.000 | SIG | 9 | 3.111 | 0.000 | 3.111 | 3.111 | 3.111 | 1.000 |
 
 ### B2. Cross-evaluation: every final defender against the SAME attackers
 
@@ -170,14 +170,14 @@ Defender = final equilibrium defender mixture of each game (or a baseline). Atta
 | fraud | 20.000 | GS_BLIND |  |  |  |  |  |
 | fraud | 20.000 | baseline_snort_rule |  |  |  |  |  |
 | fraud | 20.000 | baseline_suricata_rule |  |  |  |  |  |
-| fraud | 30.000 | ZS_BLIND | 188.374 | 187.233 | 156.394 |  | 189.208 |
-| fraud | 30.000 | SIG | 186.891 | 185.255 | 157.159 |  | 187.418 |
-| fraud | 30.000 | baseline_uniform | 204.534 | 202.939 | 165.351 |  | 205.615 |
-| fraud | 30.000 | baseline_newest | 204.534 | 202.939 | 165.351 |  | 205.615 |
-| fraud | 30.000 | baseline_proportion | 212.474 | 211.537 | 184.536 |  | 212.968 |
-| fraud | 30.000 | baseline_fraud_rule | 186.993 | 185.627 | 157.033 |  | 187.581 |
-| fraud | 30.000 | baseline_aics | 189.476 | 189.017 | 172.658 |  | 189.818 |
-| fraud | 30.000 | baseline_icde | 206.488 | 206.716 | 193.422 |  | 207.099 |
+| fraud | 30.000 | ZS_BLIND | 188.230 | 188.063 | 155.740 |  | 189.819 |
+| fraud | 30.000 | SIG | 186.159 | 185.328 | 156.521 |  | 187.250 |
+| fraud | 30.000 | baseline_uniform | 204.117 | 203.421 | 165.351 |  | 205.800 |
+| fraud | 30.000 | baseline_newest | 204.117 | 203.421 | 165.351 |  | 205.800 |
+| fraud | 30.000 | baseline_proportion | 212.562 | 211.744 | 184.536 |  | 213.015 |
+| fraud | 30.000 | baseline_fraud_rule | 186.898 | 185.941 | 157.033 |  | 187.678 |
+| fraud | 30.000 | baseline_aics | 189.760 | 188.899 | 172.658 |  | 190.064 |
+| fraud | 30.000 | baseline_icde | 206.855 | 206.458 | 193.422 |  | 207.398 |
 | fraud | 30.000 | GS_BLIND |  |  |  |  |  |
 | fraud | 30.000 | baseline_snort_rule |  |  |  |  |  |
 | fraud | 30.000 | baseline_suricata_rule |  |  |  |  |  |
@@ -192,8 +192,8 @@ Defender = final equilibrium defender mixture of each game (or a baseline). Atta
 | suricata | 500.000 | GS_BLIND |  |  |  |  |  |
 | suricata | 500.000 | baseline_snort_rule |  |  |  |  |  |
 | suricata | 500.000 | baseline_suricata_rule | 61.958 | 62.009 | 88.549 |  | 88.549 |
-| suricata | 1000.000 | ZS_BLIND | 34.262 | 34.262 | 78.582 |  | 78.582 |
-| suricata | 1000.000 | SIG | 34.390 | 34.390 | 74.955 |  | 74.955 |
+| suricata | 1000.000 | ZS_BLIND | 34.340 | 34.340 | 75.707 |  | 75.707 |
+| suricata | 1000.000 | SIG | 34.518 | 34.518 | 69.186 |  | 69.186 |
 | suricata | 1000.000 | baseline_uniform | 48.208 | 48.208 | 79.490 |  | 79.490 |
 | suricata | 1000.000 | baseline_newest | 48.208 | 48.208 | 79.490 |  | 79.490 |
 | suricata | 1000.000 | baseline_proportion | 56.391 | 56.391 | 82.549 |  | 82.549 |
@@ -203,8 +203,8 @@ Defender = final equilibrium defender mixture of each game (or a baseline). Atta
 | suricata | 1000.000 | GS_BLIND |  |  |  |  |  |
 | suricata | 1000.000 | baseline_snort_rule |  |  |  |  |  |
 | suricata | 1000.000 | baseline_suricata_rule | 56.650 | 56.650 | 76.844 |  | 76.844 |
-| suricata | 1500.000 | ZS_BLIND | 33.185 | 33.185 | 68.369 |  | 68.369 |
-| suricata | 1500.000 | SIG | 34.044 | 34.044 | 63.342 |  | 63.342 |
+| suricata | 1500.000 | ZS_BLIND | 33.270 | 33.270 | 69.511 |  | 69.511 |
+| suricata | 1500.000 | SIG | 34.113 | 34.113 | 63.720 |  | 63.720 |
 | suricata | 1500.000 | baseline_uniform | 42.246 | 42.246 | 69.908 |  | 69.908 |
 | suricata | 1500.000 | baseline_newest | 42.246 | 42.246 | 69.908 |  | 69.908 |
 | suricata | 1500.000 | baseline_proportion | 51.471 | 51.471 | 73.941 |  | 73.941 |
@@ -256,56 +256,56 @@ Paired tests SIG defender vs other defenders (negative = SIG has LOWER loss). On
 | fraud | 10.000 | SIG - ZS_BLIND | SIG_attacker | 9 | -0.821 | -0.323 | 0.161 | 0.124 | 1.000 |
 | fraud | 10.000 | SIG - ZS_BLIND | fixed_uniform | 9 | 1.348 | 0.684 | 0.674 | 0.351 | 1.000 |
 | fraud | 10.000 | SIG - ZS_BLIND | worst | 9 | -0.860 | -0.337 | 0.093 | 0.113 | 1.000 |
-| fraud | 20.000 | SIG - ZS_BLIND | ZS_BLIND_attacker | 9 | -4.868 | -2.185 | 0.020 | 0.010 | 1.000 |
+| fraud | 20.000 | SIG - ZS_BLIND | ZS_BLIND_attacker | 9 | -4.868 | -2.185 | 0.020 | 0.010 | 0.918 |
 | fraud | 20.000 | SIG - ZS_BLIND | SIG_attacker | 9 | -4.304 | -1.919 | 0.027 | 0.010 | 1.000 |
 | fraud | 20.000 | SIG - ZS_BLIND | fixed_uniform | 9 | -4.256 | -2.378 | 0.164 | 0.123 | 1.000 |
-| fraud | 20.000 | SIG - ZS_BLIND | worst | 9 | -4.347 | -1.930 | 0.020 | 0.009 | 1.000 |
-| fraud | 30.000 | SIG - ZS_BLIND | ZS_BLIND_attacker | 8 | -1.483 | -0.787 | 0.312 | 0.259 | 1.000 |
-| fraud | 30.000 | SIG - ZS_BLIND | SIG_attacker | 8 | -1.978 | -1.057 | 0.250 | 0.182 | 1.000 |
-| fraud | 30.000 | SIG - ZS_BLIND | fixed_uniform | 8 | 0.766 | 0.490 | 0.844 | 0.722 | 1.000 |
-| fraud | 30.000 | SIG - ZS_BLIND | worst | 8 | -1.790 | -0.946 | 0.250 | 0.189 | 1.000 |
+| fraud | 20.000 | SIG - ZS_BLIND | worst | 9 | -4.347 | -1.930 | 0.020 | 0.009 | 0.918 |
+| fraud | 30.000 | SIG - ZS_BLIND | ZS_BLIND_attacker | 9 | -2.071 | -1.100 | 0.164 | 0.127 | 1.000 |
+| fraud | 30.000 | SIG - ZS_BLIND | SIG_attacker | 9 | -2.736 | -1.455 | 0.129 | 0.086 | 1.000 |
+| fraud | 30.000 | SIG - ZS_BLIND | fixed_uniform | 9 | 0.782 | 0.502 | 0.652 | 0.680 | 1.000 |
+| fraud | 30.000 | SIG - ZS_BLIND | worst | 9 | -2.568 | -1.353 | 0.129 | 0.091 | 1.000 |
 | suricata | 500.000 | SIG - ZS_BLIND | ZS_BLIND_attacker | 8 | 2.385 | 6.178 | 0.547 | 0.301 | 1.000 |
 | suricata | 500.000 | SIG - ZS_BLIND | SIG_attacker | 8 | -2.331 | -5.738 | 0.742 | 0.399 | 1.000 |
 | suricata | 500.000 | SIG - ZS_BLIND | fixed_uniform | 8 | -1.689 | -1.938 | 0.461 | 0.521 | 1.000 |
 | suricata | 500.000 | SIG - ZS_BLIND | worst | 8 | -1.689 | -1.938 | 0.461 | 0.521 | 1.000 |
-| suricata | 1000.000 | SIG - ZS_BLIND | ZS_BLIND_attacker | 7 | 0.128 | 0.373 | 0.938 | 0.604 | 1.000 |
-| suricata | 1000.000 | SIG - ZS_BLIND | SIG_attacker | 7 | 0.128 | 0.373 | 0.938 | 0.604 | 1.000 |
-| suricata | 1000.000 | SIG - ZS_BLIND | fixed_uniform | 7 | -3.628 | -4.616 | 0.469 | 0.387 | 1.000 |
-| suricata | 1000.000 | SIG - ZS_BLIND | worst | 7 | -3.628 | -4.616 | 0.469 | 0.387 | 1.000 |
-| suricata | 1500.000 | SIG - ZS_BLIND | ZS_BLIND_attacker | 7 | 0.859 | 2.589 | 0.297 | 0.245 | 1.000 |
-| suricata | 1500.000 | SIG - ZS_BLIND | SIG_attacker | 7 | 0.859 | 2.589 | 0.297 | 0.245 | 1.000 |
-| suricata | 1500.000 | SIG - ZS_BLIND | fixed_uniform | 7 | -5.026 | -7.352 | 0.578 | 0.549 | 1.000 |
-| suricata | 1500.000 | SIG - ZS_BLIND | worst | 7 | -5.026 | -7.352 | 0.578 | 0.549 | 1.000 |
-| snort | 500.000 | SIG - ZS_BLIND | ZS_BLIND_attacker | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 500.000 | SIG - ZS_BLIND | SIG_attacker | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 500.000 | SIG - ZS_BLIND | fixed_uniform | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 500.000 | SIG - ZS_BLIND | GS_BLIND_attacker | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 500.000 | SIG - ZS_BLIND | worst | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 500.000 | SIG - GS_BLIND | ZS_BLIND_attacker | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 500.000 | SIG - GS_BLIND | SIG_attacker | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 500.000 | SIG - GS_BLIND | fixed_uniform | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 500.000 | SIG - GS_BLIND | GS_BLIND_attacker | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 500.000 | SIG - GS_BLIND | worst | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1000.000 | SIG - ZS_BLIND | ZS_BLIND_attacker | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1000.000 | SIG - ZS_BLIND | SIG_attacker | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1000.000 | SIG - ZS_BLIND | fixed_uniform | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1000.000 | SIG - ZS_BLIND | GS_BLIND_attacker | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1000.000 | SIG - ZS_BLIND | worst | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1000.000 | SIG - GS_BLIND | ZS_BLIND_attacker | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1000.000 | SIG - GS_BLIND | SIG_attacker | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1000.000 | SIG - GS_BLIND | fixed_uniform | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1000.000 | SIG - GS_BLIND | GS_BLIND_attacker | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1000.000 | SIG - GS_BLIND | worst | 9 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1500.000 | SIG - ZS_BLIND | ZS_BLIND_attacker | 8 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1500.000 | SIG - ZS_BLIND | SIG_attacker | 8 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1500.000 | SIG - ZS_BLIND | fixed_uniform | 8 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1500.000 | SIG - ZS_BLIND | GS_BLIND_attacker | 8 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1500.000 | SIG - ZS_BLIND | worst | 8 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1500.000 | SIG - GS_BLIND | ZS_BLIND_attacker | 8 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1500.000 | SIG - GS_BLIND | SIG_attacker | 8 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1500.000 | SIG - GS_BLIND | fixed_uniform | 8 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1500.000 | SIG - GS_BLIND | GS_BLIND_attacker | 8 | 0.000 | 0.000 | nan | nan | nan |
-| snort | 1500.000 | SIG - GS_BLIND | worst | 8 | 0.000 | 0.000 | nan | nan | nan |
+| suricata | 1000.000 | SIG - ZS_BLIND | ZS_BLIND_attacker | 9 | 0.178 | 0.518 | 0.570 | 0.359 | 1.000 |
+| suricata | 1000.000 | SIG - ZS_BLIND | SIG_attacker | 9 | 0.178 | 0.518 | 0.570 | 0.359 | 1.000 |
+| suricata | 1000.000 | SIG - ZS_BLIND | fixed_uniform | 9 | -6.520 | -8.613 | 0.203 | 0.155 | 1.000 |
+| suricata | 1000.000 | SIG - ZS_BLIND | worst | 9 | -6.520 | -8.613 | 0.203 | 0.155 | 1.000 |
+| suricata | 1500.000 | SIG - ZS_BLIND | ZS_BLIND_attacker | 9 | 0.844 | 2.535 | 0.129 | 0.141 | 1.000 |
+| suricata | 1500.000 | SIG - ZS_BLIND | SIG_attacker | 9 | 0.844 | 2.535 | 0.129 | 0.141 | 1.000 |
+| suricata | 1500.000 | SIG - ZS_BLIND | fixed_uniform | 9 | -5.791 | -8.331 | 0.359 | 0.371 | 1.000 |
+| suricata | 1500.000 | SIG - ZS_BLIND | worst | 9 | -5.791 | -8.331 | 0.359 | 0.371 | 1.000 |
+| snort | 500.000 | SIG - ZS_BLIND | ZS_BLIND_attacker | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 500.000 | SIG - ZS_BLIND | SIG_attacker | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 500.000 | SIG - ZS_BLIND | fixed_uniform | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 500.000 | SIG - ZS_BLIND | GS_BLIND_attacker | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 500.000 | SIG - ZS_BLIND | worst | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 500.000 | SIG - GS_BLIND | ZS_BLIND_attacker | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 500.000 | SIG - GS_BLIND | SIG_attacker | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 500.000 | SIG - GS_BLIND | fixed_uniform | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 500.000 | SIG - GS_BLIND | GS_BLIND_attacker | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 500.000 | SIG - GS_BLIND | worst | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1000.000 | SIG - ZS_BLIND | ZS_BLIND_attacker | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1000.000 | SIG - ZS_BLIND | SIG_attacker | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1000.000 | SIG - ZS_BLIND | fixed_uniform | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1000.000 | SIG - ZS_BLIND | GS_BLIND_attacker | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1000.000 | SIG - ZS_BLIND | worst | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1000.000 | SIG - GS_BLIND | ZS_BLIND_attacker | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1000.000 | SIG - GS_BLIND | SIG_attacker | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1000.000 | SIG - GS_BLIND | fixed_uniform | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1000.000 | SIG - GS_BLIND | GS_BLIND_attacker | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1000.000 | SIG - GS_BLIND | worst | 10 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1500.000 | SIG - ZS_BLIND | ZS_BLIND_attacker | 9 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1500.000 | SIG - ZS_BLIND | SIG_attacker | 9 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1500.000 | SIG - ZS_BLIND | fixed_uniform | 9 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1500.000 | SIG - ZS_BLIND | GS_BLIND_attacker | 9 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1500.000 | SIG - ZS_BLIND | worst | 9 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1500.000 | SIG - GS_BLIND | ZS_BLIND_attacker | 9 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1500.000 | SIG - GS_BLIND | SIG_attacker | 9 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1500.000 | SIG - GS_BLIND | fixed_uniform | 9 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1500.000 | SIG - GS_BLIND | GS_BLIND_attacker | 9 | 0.000 | 0.000 | nan | nan | nan |
+| snort | 1500.000 | SIG - GS_BLIND | worst | 9 | 0.000 | 0.000 | nan | nan | nan |
 
 ## C. Belief diagnostics (signaling game, final equilibrium)
 
@@ -313,13 +313,13 @@ Paired tests SIG defender vs other defenders (negative = SIG has LOWER loss). On
 |---|---|---|---|---|---|---|---|
 | fraud | 10.000 | 9 | 0 | 0.069 | 0.000 | 0.000 | 0.731 |
 | fraud | 20.000 | 9 | 0 | 0.063 | 0.000 | 0.000 | 0.742 |
-| fraud | 30.000 | 8 | 0 | 0.018 | 0.000 | 0.000 | 0.753 |
+| fraud | 30.000 | 9 | 0 | 0.023 | 0.000 | 0.000 | 0.750 |
 | suricata | 500.000 | 8 | 0 | 0.000 | 0.000 | 0.000 | 0.717 |
-| suricata | 1000.000 | 7 | 0 | 0.000 | 0.000 | 0.000 | 0.717 |
-| suricata | 1500.000 | 7 | 0 | 0.000 | 0.000 | 0.000 | 0.717 |
-| snort | 500.000 | 0 | 9 |  |  |  |  |
-| snort | 1000.000 | 0 | 9 |  |  |  |  |
-| snort | 1500.000 | 0 | 8 |  |  |  |  |
+| suricata | 1000.000 | 9 | 0 | 0.000 | 0.000 | 0.000 | 0.717 |
+| suricata | 1500.000 | 9 | 0 | 0.000 | 0.000 | 0.000 | 0.717 |
+| snort | 500.000 | 0 | 10 |  |  |  |  |
+| snort | 1000.000 | 0 | 10 |  |  |  |  |
+| snort | 1500.000 | 0 | 9 |  |  |  |  |
 
 ### Investigation split of the main belief policy at different beliefs (seed 0, middle budget)
 

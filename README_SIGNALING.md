@@ -136,7 +136,7 @@ nohup ./run_signaling.sh full > logs/full_run.log 2>&1 & disown
 
 ## 4. Results
 
-> **Status: INTERIM results, 2026-11-01 20:28 IST, 74 of 90 main jobs finished** (the FULL run is still in progress; the sensitivity study is complete). Seed counts per row are in column n; the final version will have 10 seeds per row.
+> **Status: INTERIM results, 2026-11-01 20:52 IST, 82 of 90 main jobs finished** (the remaining jobs are still running; the sensitivity study is complete). Seed counts per row are in column n; the final version will have 10 seeds per row.
 
 Loss = expected discounted defender loss per episode (lower is better). Mean ± std over independent seeds (n). Full tables with 95% CIs: [`results/full_v2/RESULTS.md`](results/full_v2/RESULTS.md); raw CSVs and figures are in `results/full_v2/`.
 
@@ -145,14 +145,14 @@ Loss = expected discounted defender loss per episode (lower is better). Mean ± 
 | dataset | B | n | BLIND | BELIEF | INFORMED (upper bound) | best rule baseline | BELIEF−BLIND | paired t p | Wilcoxon p |
 |---|---|---|---|---|---|---|---|---|---|
 | suricata | 500 | 8 | 70.4 ± 1.8 | 62.3 ± 1.2 | 61.3 ± 1.0 | 88.5 (suricata_rule) | -8.1 | <0.001 | 0.008 |
-| suricata | 1000 | 7 | 56.0 ± 2.2 | 45.1 ± 0.5 | 44.5 ± 1.3 | 76.8 (suricata_rule) | -10.9 | <0.001 | 0.016 |
-| suricata | 1500 | 7 | 49.0 ± 1.5 | 38.4 ± 0.6 | 37.6 ± 1.6 | 69.2 (suricata_rule) | -10.6 | <0.001 | 0.016 |
+| suricata | 1000 | 9 | 55.8 ± 2.1 | 45.4 ± 0.9 | 44.3 ± 1.2 | 76.8 (suricata_rule) | -10.4 | <0.001 | 0.004 |
+| suricata | 1500 | 9 | 48.7 ± 1.7 | 38.5 ± 0.6 | 37.5 ± 1.4 | 69.2 (suricata_rule) | -10.2 | <0.001 | 0.004 |
 | fraud | 10 | 9 | 199.0 ± 6.1 | 197.8 ± 2.0 | 190.8 ± 4.7 | 229.8 (uniform) | -1.2 | 0.637 | 0.612 |
 | fraud | 20 | 9 | 179.3 ± 2.4 | 173.2 ± 5.6 | 154.9 ± 2.4 | 194.5 (fraud_rule) | -6.0 | 0.007 | 0.020 |
-| fraud | 30 | 8 | 158.2 ± 8.5 | 149.7 ± 2.4 | 134.5 ± 2.4 | 157.0 (fraud_rule) | -8.5 | 0.008 | 0.008 |
-| snort | 500 | 9 | 33.0 ± 1.6 | 32.4 ± 0.3 | 32.4 ± 0.0 | 32.3 (uniform) | -0.6 | 0.322 | 0.652 |
-| snort | 1000 | 9 | 30.1 ± 2.9 | 28.9 ± 0.0 | 29.4 ± 1.2 | 28.9 (uniform) | -1.2 | 0.249 | 0.063 |
-| snort | 1500 | 8 | 26.8 ± 0.7 | 26.6 ± 0.0 | 26.6 ± 0.0 | 26.6 (uniform) | -0.2 | 0.351 | 0.317 |
+| fraud | 30 | 9 | 157.0 ± 8.8 | 149.9 ± 2.4 | 134.7 ± 2.4 | 157.0 (fraud_rule) | -7.0 | 0.024 | 0.027 |
+| snort | 500 | 10 | 33.0 ± 1.6 | 32.4 ± 0.2 | 32.4 ± 0.0 | 32.3 (uniform) | -0.5 | 0.319 | 0.770 |
+| snort | 1000 | 10 | 30.0 ± 2.8 | 28.9 ± 0.0 | 29.3 ± 1.1 | 28.9 (uniform) | -1.1 | 0.246 | 0.036 |
+| snort | 1500 | 9 | 26.8 ± 0.7 | 26.6 ± 0.0 | 27.1 ± 1.4 | 26.6 (uniform) | -0.2 | 0.346 | 0.180 |
 
 ### 4.2 Signaling game vs zero-sum game (double oracle, cross-evaluation)
 
@@ -164,14 +164,14 @@ Each game's final defender is played against the same attackers on identical epi
 | suricata | 500 | 8 | ZS_BLIND_attacker | 38.6 | 41.0 | +2.38 | +6.2% | 0.301 | 0.547 |
 | suricata | 500 | 8 | fixed_uniform | 87.2 | 85.5 | -1.69 | -1.9% | 0.521 | 0.461 |
 | suricata | 500 | 8 | worst | – | – | -1.69 | -1.9% | 0.521 | 0.461 |
-| suricata | 1000 | 7 | SIG_attacker | 34.3 | 34.4 | +0.13 | +0.4% | 0.604 | 0.938 |
-| suricata | 1000 | 7 | ZS_BLIND_attacker | 34.3 | 34.4 | +0.13 | +0.4% | 0.604 | 0.938 |
-| suricata | 1000 | 7 | fixed_uniform | 78.6 | 75.0 | -3.63 | -4.6% | 0.387 | 0.469 |
-| suricata | 1000 | 7 | worst | – | – | -3.63 | -4.6% | 0.387 | 0.469 |
-| suricata | 1500 | 7 | SIG_attacker | 33.2 | 34.0 | +0.86 | +2.6% | 0.245 | 0.297 |
-| suricata | 1500 | 7 | ZS_BLIND_attacker | 33.2 | 34.0 | +0.86 | +2.6% | 0.245 | 0.297 |
-| suricata | 1500 | 7 | fixed_uniform | 68.4 | 63.3 | -5.03 | -7.4% | 0.549 | 0.578 |
-| suricata | 1500 | 7 | worst | – | – | -5.03 | -7.4% | 0.549 | 0.578 |
+| suricata | 1000 | 9 | SIG_attacker | 34.3 | 34.5 | +0.18 | +0.5% | 0.359 | 0.570 |
+| suricata | 1000 | 9 | ZS_BLIND_attacker | 34.3 | 34.5 | +0.18 | +0.5% | 0.359 | 0.570 |
+| suricata | 1000 | 9 | fixed_uniform | 75.7 | 69.2 | -6.52 | -8.6% | 0.155 | 0.203 |
+| suricata | 1000 | 9 | worst | – | – | -6.52 | -8.6% | 0.155 | 0.203 |
+| suricata | 1500 | 9 | SIG_attacker | 33.3 | 34.1 | +0.84 | +2.5% | 0.141 | 0.129 |
+| suricata | 1500 | 9 | ZS_BLIND_attacker | 33.3 | 34.1 | +0.84 | +2.5% | 0.141 | 0.129 |
+| suricata | 1500 | 9 | fixed_uniform | 69.5 | 63.7 | -5.79 | -8.3% | 0.371 | 0.359 |
+| suricata | 1500 | 9 | worst | – | – | -5.79 | -8.3% | 0.371 | 0.359 |
 | fraud | 10 | 9 | SIG_attacker | 254.0 | 253.1 | -0.82 | -0.3% | 0.124 | 0.161 |
 | fraud | 10 | 9 | ZS_BLIND_attacker | 255.1 | 254.1 | -0.91 | -0.4% | 0.097 | 0.069 |
 | fraud | 10 | 9 | fixed_uniform | 197.1 | 198.5 | +1.35 | +0.7% | 0.351 | 0.674 |
@@ -180,22 +180,22 @@ Each game's final defender is played against the same attackers on identical epi
 | fraud | 20 | 9 | ZS_BLIND_attacker | 222.8 | 217.9 | -4.87 | -2.2% | 0.010 | 0.020 |
 | fraud | 20 | 9 | fixed_uniform | 179.0 | 174.7 | -4.26 | -2.4% | 0.123 | 0.164 |
 | fraud | 20 | 9 | worst | – | – | -4.35 | -1.9% | 0.009 | 0.020 |
-| fraud | 30 | 8 | SIG_attacker | 187.2 | 185.3 | -1.98 | -1.1% | 0.182 | 0.250 |
-| fraud | 30 | 8 | ZS_BLIND_attacker | 188.4 | 186.9 | -1.48 | -0.8% | 0.259 | 0.312 |
-| fraud | 30 | 8 | fixed_uniform | 156.4 | 157.2 | +0.77 | +0.5% | 0.722 | 0.844 |
-| fraud | 30 | 8 | worst | – | – | -1.79 | -0.9% | 0.189 | 0.250 |
-| snort | 500 | 9 | SIG_attacker | 8.2 | 8.2 | +0.00 | +0.0% | nan | nan |
-| snort | 500 | 9 | ZS_BLIND_attacker | 8.2 | 8.2 | +0.00 | +0.0% | nan | nan |
-| snort | 500 | 9 | fixed_uniform | 32.3 | 32.3 | +0.00 | +0.0% | nan | nan |
-| snort | 500 | 9 | worst | – | – | +0.00 | +0.0% | nan | nan |
-| snort | 1000 | 9 | SIG_attacker | 5.3 | 5.3 | +0.00 | +0.0% | nan | nan |
-| snort | 1000 | 9 | ZS_BLIND_attacker | 5.3 | 5.3 | +0.00 | +0.0% | nan | nan |
-| snort | 1000 | 9 | fixed_uniform | 28.9 | 28.9 | +0.00 | +0.0% | nan | nan |
-| snort | 1000 | 9 | worst | – | – | +0.00 | +0.0% | nan | nan |
-| snort | 1500 | 8 | SIG_attacker | 3.4 | 3.4 | +0.00 | +0.0% | nan | nan |
-| snort | 1500 | 8 | ZS_BLIND_attacker | 3.4 | 3.4 | +0.00 | +0.0% | nan | nan |
-| snort | 1500 | 8 | fixed_uniform | 26.6 | 26.6 | +0.00 | +0.0% | nan | nan |
-| snort | 1500 | 8 | worst | – | – | +0.00 | +0.0% | nan | nan |
+| fraud | 30 | 9 | SIG_attacker | 188.1 | 185.3 | -2.74 | -1.5% | 0.086 | 0.129 |
+| fraud | 30 | 9 | ZS_BLIND_attacker | 188.2 | 186.2 | -2.07 | -1.1% | 0.127 | 0.164 |
+| fraud | 30 | 9 | fixed_uniform | 155.7 | 156.5 | +0.78 | +0.5% | 0.680 | 0.652 |
+| fraud | 30 | 9 | worst | – | – | -2.57 | -1.4% | 0.091 | 0.129 |
+| snort | 500 | 10 | SIG_attacker | 8.2 | 8.2 | +0.00 | +0.0% | nan | nan |
+| snort | 500 | 10 | ZS_BLIND_attacker | 8.2 | 8.2 | +0.00 | +0.0% | nan | nan |
+| snort | 500 | 10 | fixed_uniform | 32.3 | 32.3 | +0.00 | +0.0% | nan | nan |
+| snort | 500 | 10 | worst | – | – | +0.00 | +0.0% | nan | nan |
+| snort | 1000 | 10 | SIG_attacker | 5.3 | 5.3 | +0.00 | +0.0% | nan | nan |
+| snort | 1000 | 10 | ZS_BLIND_attacker | 5.3 | 5.3 | +0.00 | +0.0% | nan | nan |
+| snort | 1000 | 10 | fixed_uniform | 28.9 | 28.9 | +0.00 | +0.0% | nan | nan |
+| snort | 1000 | 10 | worst | – | – | +0.00 | +0.0% | nan | nan |
+| snort | 1500 | 9 | SIG_attacker | 3.4 | 3.4 | +0.00 | +0.0% | nan | nan |
+| snort | 1500 | 9 | ZS_BLIND_attacker | 3.4 | 3.4 | +0.00 | +0.0% | nan | nan |
+| snort | 1500 | 9 | fixed_uniform | 26.6 | 26.6 | +0.00 | +0.0% | nan | nan |
+| snort | 1500 | 9 | worst | – | – | +0.00 | +0.0% | nan | nan |
 
 ### 4.3 Equilibrium values (expected defender loss at the final restricted equilibrium)
 
@@ -205,23 +205,23 @@ Each game's final defender is played against the same attackers on identical epi
 | fraud | 10 | SIG | 9 | 253.5 | 1.4 | 4.3 |
 | fraud | 20 | ZS_BLIND | 9 | 222.3 | 5.8 | 3.7 |
 | fraud | 20 | SIG | 9 | 220.6 | 2.8 | 3.7 |
-| fraud | 30 | ZS_BLIND | 8 | 187.5 | 1.9 | 3.8 |
-| fraud | 30 | SIG | 8 | 184.3 | 4.6 | 4.4 |
+| fraud | 30 | ZS_BLIND | 9 | 187.0 | 2.4 | 3.6 |
+| fraud | 30 | SIG | 9 | 184.0 | 4.4 | 4.6 |
 | suricata | 500 | ZS_BLIND | 8 | 37.5 | 1.9 | 4.8 |
 | suricata | 500 | SIG | 8 | 37.0 | 0.2 | 4.8 |
-| suricata | 1000 | ZS_BLIND | 7 | 34.1 | 0.2 | 4.0 |
-| suricata | 1000 | SIG | 7 | 34.1 | 0.3 | 4.7 |
-| suricata | 1500 | ZS_BLIND | 7 | 33.0 | 0.9 | 5.6 |
-| suricata | 1500 | SIG | 7 | 33.7 | 1.3 | 4.3 |
-| snort | 500 | ZS_BLIND | 9 | 8.1 | 0.0 | 3.1 |
-| snort | 500 | GS_BLIND | 9 | 8.1 | 0.0 | 3.1 |
-| snort | 500 | SIG | 9 | 8.1 | 0.0 | 3.1 |
-| snort | 1000 | ZS_BLIND | 9 | 4.8 | 0.0 | 3.1 |
-| snort | 1000 | GS_BLIND | 9 | 4.8 | 0.0 | 3.3 |
-| snort | 1000 | SIG | 9 | 4.8 | 0.0 | 3.3 |
-| snort | 1500 | ZS_BLIND | 8 | 3.1 | 0.0 | 3.1 |
-| snort | 1500 | GS_BLIND | 8 | 3.1 | 0.0 | 3.0 |
-| snort | 1500 | SIG | 8 | 3.1 | 0.0 | 3.0 |
+| suricata | 1000 | ZS_BLIND | 9 | 34.2 | 0.2 | 3.8 |
+| suricata | 1000 | SIG | 9 | 34.1 | 0.4 | 4.8 |
+| suricata | 1500 | ZS_BLIND | 9 | 33.0 | 0.8 | 5.3 |
+| suricata | 1500 | SIG | 9 | 33.8 | 1.2 | 4.2 |
+| snort | 500 | ZS_BLIND | 10 | 8.1 | 0.0 | 3.2 |
+| snort | 500 | GS_BLIND | 10 | 8.1 | 0.0 | 3.0 |
+| snort | 500 | SIG | 10 | 8.1 | 0.0 | 3.2 |
+| snort | 1000 | ZS_BLIND | 10 | 4.8 | 0.0 | 3.2 |
+| snort | 1000 | GS_BLIND | 10 | 4.8 | 0.0 | 3.2 |
+| snort | 1000 | SIG | 10 | 4.8 | 0.0 | 3.2 |
+| snort | 1500 | ZS_BLIND | 9 | 3.1 | 0.0 | 3.2 |
+| snort | 1500 | GS_BLIND | 9 | 3.1 | 0.0 | 3.1 |
+| snort | 1500 | SIG | 9 | 3.1 | 0.0 | 3.1 |
 
 Equilibrium values of different games are not directly comparable (different attacker objectives); 4.2 is the fair comparison. For suricata and fraud the zero-sum and general-sum payoffs coincide in the original data (only snort sets separate gains), so GS_BLIND is run only on snort.
 
@@ -262,15 +262,20 @@ separability 0 = both types identical, 1 = the default types.
 2. **At equilibrium, against an adaptive learned attacker, the advantage largely disappears.** On suricata
    the signaling defender and the zero-sum defender are tied within noise against the learned attackers;
    the signaling defender is better against the fixed attacker, but not significantly. On fraud the
-   signaling defender has a lower loss at every budget, but only by about 0.3-2%. The difference is
-   significant at B = 20 (p about 0.01-0.02 before correction for multiple comparisons) and not at B = 10
-   or 30. **Overall this is a weak / partly inconclusive advantage for the signaling game, reported as such.**
-3. **Snort does not discriminate.** All defenders, games and baselines give the same loss. Alert type 2 has
+   signaling defender has a lower loss at every budget against the learned attackers and in the worst
+   case, but only by about 0.3-2% (against the fixed attacker it is +0.5 to +0.7% at B = 10 and 30). The
+   difference is significant at B = 20 (p about 0.01-0.03 before correction for multiple comparisons)
+   and not at B = 10 or 30. **Overall this is a weak / partly inconclusive advantage for the signaling game, reported as such.**
+3. **Snort does not discriminate.** The zero-sum, general-sum and signaling games give exactly the same
+   loss at every budget, and in the fixed-attacker study all defenders are within noise of the uniform baseline. Alert type 2 has
    no false alerts and the existing budget-feasibility rule sends the whole budget to the alert types that
    have alerts, so the simple heuristics are already optimal (see `SIGNALING_NOTES.md`, decision 29).
 4. **Sensitivity (4.4):** the more distinguishable the types, the more INFORMED gains; BELIEF gains little
    on fraud at any separability, consistent with point 1.
-5. **Against rule-based baselines:** in the worst case over attackers, the signaling defender beats every rule baseline by about 20-39% on suricata. On fraud it beats them by 3-12%, except that the fraud-specific rule (and aics) ties with it at B = 30 (`results/full_v2/cross_evaluation_tests.csv`).
+5. **Against rule-based baselines:** on suricata the signaling defender beats every rule baseline by 19-39%
+   against the learned attackers and by 3-16% against the fixed attacker (which is the worst case for every
+   defender there). On fraud it beats them by up to 12%, except that the fraud-specific rule ties with it
+   at B = 30 (difference 0.2-0.4%, not significant). See `results/full_v2/cross_evaluation_tests.csv`.
 
 **Limitations.** The double oracle with RL best responses approximates a perfect Bayesian equilibrium; it
 does not prove one (section 1). Oracles are DDPG: the existing SAC implementation collapsed to a uniform
