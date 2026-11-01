@@ -13,3 +13,4 @@ src/smoke_original.conf
 model/converge/snort_1000_125_ddpg_do/
 model/converge/snort_1000_125_sac_do/
 model/converge/snort_1000_125_td3_do/
+papers/
