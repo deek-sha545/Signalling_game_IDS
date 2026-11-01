@@ -239,7 +239,9 @@ class DDPGlearning:
         op_actions = np.random.choice(op_profile, MAX_EPISODES, p=op_strategy)
 
         for i in range(MAX_EPISODES):
-            global_state = initial_state
+            # SIGNALING EXTENSION: if initial_state is a function, call it to draw a fresh
+            # initial state each episode (lets Nature draw the hidden attacker type).
+            global_state = initial_state() if callable(initial_state) else initial_state
             state = np.array(state_observe(global_state),dtype=np.float32)            
             op_action = op_actions[i]
             episode_reward = 0.0
@@ -303,7 +305,9 @@ class DDPGlearning:
         total_reward = 0
         op_actions = np.random.choice(op_profile, TEST_EPISODES, p=op_strategy)            
         for i in range(TEST_EPISODES):
-            global_state = initial_state
+            # SIGNALING EXTENSION: if initial_state is a function, call it to draw a fresh
+            # initial state each episode (lets Nature draw the hidden attacker type).
+            global_state = initial_state() if callable(initial_state) else initial_state
             state = np.array(state_observe(global_state),dtype=np.float32)
             episode_reward = 0.0
             op_action = op_actions[i]
@@ -331,7 +335,9 @@ class DDPGlearning:
         total_reward = 0
         op_actions = np.random.choice(op_profile, TEST_EPISODES_NS, p=op_strategy)            
         for i in range(TEST_EPISODES_NS):
-            global_state = initial_state
+            # SIGNALING EXTENSION: if initial_state is a function, call it to draw a fresh
+            # initial state each episode (lets Nature draw the hidden attacker type).
+            global_state = initial_state() if callable(initial_state) else initial_state
             state = np.array(state_observe(global_state),dtype=np.float32)
             episode_reward = 0.0
             op_action = op_actions[i]
