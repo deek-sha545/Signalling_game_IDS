@@ -27,7 +27,11 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-MODE = sys.argv[1] if len(sys.argv) > 1 else 'full'
+if len(sys.argv) > 1:
+    MODE = sys.argv[1]
+else:   # default: the run tag of the config named by IDS_CONFIG
+    from config import config
+    MODE = config.get('signaling', 'tag')
 RUNS = os.path.join('..', 'runs', MODE)
 OUT = os.path.join('..', 'results', MODE)
 os.makedirs(OUT, exist_ok=True)
