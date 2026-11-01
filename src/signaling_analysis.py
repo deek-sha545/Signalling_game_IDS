@@ -195,15 +195,20 @@ for ds in datasets:
             if v:
                 m, sd, lo, hi = ci(list(v.values()))
                 its = [len(j['do'][c]['diag']) for j in jobs if j['dataset'] == ds and j['budget'] == b and c in j['do']]
-                eqrows.append([ds, b, c, len(v), m, sd, lo, hi, float(np.mean(its))])
+                # weight of the initial heuristic defender (pool index 0 = test_defense_newest)
+                w0 = [j['do'][c]['def_s'][0] for j in jobs if j['dataset'] == ds and j['budget'] == b and c in j['do']]
+                eqrows.append([ds, b, c, len(v), m, sd, lo, hi, float(np.mean(its)), float(np.mean(w0))])
 write_csv(os.path.join(OUT, 'equilibrium_value_summary.csv'),
-          ['dataset', 'budget', 'game', 'n', 'mean_eq_def_loss', 'std', 'ci95_lo', 'ci95_hi', 'mean_iterations'], eqrows)
+          ['dataset', 'budget', 'game', 'n', 'mean_eq_def_loss', 'std', 'ci95_lo', 'ci95_hi', 'mean_iterations', 'mean_weight_on_initial_newest_defender'], eqrows)
 MD.append('### B1. Defender loss at the restricted-game equilibrium (each game against its OWN attacker)')
 MD.append('')
 MD.append('Caution: these are values of DIFFERENT games (the attacker objective differs between '
           'zero-sum and general-sum), so they are not a like-for-like comparison of defenders; see B2.')
 MD.append('')
-md_table(['dataset', 'budget', 'game', 'n', 'mean loss', 'std', 'CI low', 'CI high', 'DO iterations'], eqrows)
+MD.append('"weight newest" = average equilibrium probability on the initial non-learned `newest` defender; '
+          'a value near 1 means the RL best responses never beat that heuristic in the restricted game.')
+MD.append('')
+md_table(['dataset', 'budget', 'game', 'n', 'mean loss', 'std', 'CI low', 'CI high', 'DO iterations', 'weight newest'], eqrows)
 
 crows = []
 for ds in datasets:
