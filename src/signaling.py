@@ -168,6 +168,7 @@ def read_type_cfg(config):
 # --------------------------------------------------------------------------
 
 BELIEF_FLOOR = 1e-9   # numerical floor so a belief never becomes exactly 0
+ALPHA_TREMBLE = 1e-3  # see BeliefFilter.__init__
 
 
 def poisson_logpmf(k, lam):
@@ -203,7 +204,10 @@ class BeliefFilter:
 
     def __init__(self, game, alpha_hat):
         self.game = game
-        self.alpha_hat = np.clip(np.array(alpha_hat, dtype=float), 0.0, 1.0)
+        # "trembling hand": the conjectured attack rates are kept inside
+        # [0.001, 0.999] so that no signal becomes impossible just because the
+        # conjecture says an attack is mounted with probability exactly 0 or 1.
+        self.alpha_hat = np.clip(np.array(alpha_hat, dtype=float), ALPHA_TREMBLE, 1 - ALPHA_TREMBLE)
         assert self.alpha_hat.shape == (game.K, game.A)
         self.id = BeliefFilter._next_id
         BeliefFilter._next_id += 1

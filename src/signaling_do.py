@@ -122,6 +122,7 @@ def train_defender(game, kind, atk_policies, atk_probs, alpha_hat, seed):
         start = lambda: S.initial_state(game)
         agent.learn_from_mix(game.base, start, observe, update, list(atk_policies), list(atk_probs))
         agent.evaluate(game.base, start, observe, update, list(atk_policies), list(atk_probs))
+    agent.ddpg.memory = None      # replay buffer no longer needed: free RAM
     return S.DefenderPolicy(game, agent, kind, filt, label=kind), agent.utility
 
 
@@ -144,12 +145,19 @@ def train_attacker(game, def_policies, def_probs, seed):
         start = lambda: S.initial_state(game)
         agent.learn_from_mix(game.base, start, observe, update, list(def_policies), list(def_probs))
         agent.evaluate(game.base, start, observe, update, list(def_policies), list(def_probs))
+    agent.ddpg.memory = None      # replay buffer no longer needed: free RAM
     return S.AttackerPolicy(game, agent, label='rl'), agent.utility
 
 
 def evaluate_pair(game, d, a, n):
     r = S.play(game, d, a, n, MAX_EP_STEPS, GAMMA, EVAL_SEED)
     return -r['def_loss'].mean(), r['atk_util'].mean(), r['alpha_mean']
+
+def close_policy(p):
+    """Release the TensorFlow session of a trained policy (RAM)."""
+    if hasattr(p, 'agent'):
+        p.agent.ddpg.sess.close()
+
 
 # ---------------------------- double oracle --------------------------------
 
@@ -214,6 +222,10 @@ def double_oracle(game, kind, seed, label, log):
         if d_gain <= 0 and a_gain <= 0:
             break
     att_s, def_s, util_d = find_mixed_NE(payoff_def, payoff_atk, selection=SELECTION)
+    # policies outside the final equilibrium support are never used again
+    for p, w in list(zip(def_pool, def_s)) + list(zip(atk_pool, att_s)):
+        if w < 1e-9:
+            close_policy(p)
     return {'def_pool': def_pool, 'atk_pool': atk_pool, 'def_s': list(def_s), 'att_s': list(att_s),
             'atk_alpha': atk_alpha, 'payoff_def': payoff_def.tolist(),
             'payoff_atk': payoff_atk.tolist(), 'final_eq_def_loss': -float(util_d), 'diag': diag}
@@ -253,7 +265,7 @@ def belief_diagnostics(game, sig, n_episodes, out_prefix):
     atk_mix = S.Mix(sig['atk_pool'], sig['att_s'])
     r = S.play(game, def_mix, atk_mix, n_episodes, MAX_EP_STEPS, GAMMA, EVAL_SEED + 1, record=True)
     belief_pols = [(p, w) for p, w in zip(sig['def_pool'], sig['def_s'])
-                   if isinstance(p, S.DefenderPolicy) and p.kind == 'belief']
+                   if isinstance(p, S.DefenderPolicy) and p.kind == 'belief' and w > 1e-9]
     if not belief_pols:
         return {'note': 'no belief policy in final defender support'}
     main = max(belief_pols, key=lambda x: x[1])[0]
@@ -398,8 +410,10 @@ def run_job(job):
             result['type_check'] = type_check(g_ds, FINAL_EPISODES)
             log('type check: ' + json.dumps(result['type_check']))
 
-        fixed_rows, _ = fixed_attacker_study(g_ds, dataset, budget, seed, log)
+        fixed_rows, fixed_pols = fixed_attacker_study(g_ds, dataset, budget, seed, log)
         result['fixed_attacker'] = fixed_rows
+        for p in fixed_pols.values():
+            close_policy(p)
 
         runs = {'ZS_BLIND': (g_zs, 'blind')}
         if general_sum:
@@ -475,9 +489,9 @@ if __name__ == '__main__':
     seeds = list(range(SG.getint('n_seeds')))
     if what == 'main':
         jobs = []
-        for ds in parse_list('datasets'):
-            for b in parse_list('budgets_' + ds, float):
-                for s in seeds:
+        for s in seeds:                       # seed-major: whole seeds finish first
+            for ds in parse_list('datasets'):
+                for b in parse_list('budgets_' + ds, float):
                     jobs.append((ds, b, s))
         fn = run_job
     elif what == 'sensitivity':
