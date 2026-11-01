@@ -389,6 +389,9 @@ def run_job(job):
     done_file = os.path.join(OUT, name + '.json')
     if os.path.exists(done_file):
         return name + ' (already done)'
+    # optional helper pool (SIG_SKIP_STARTED=1): skip jobs another pool has started
+    if os.environ.get('SIG_SKIP_STARTED') and os.path.exists(os.path.join(OUT, name + '.log')):
+        return name + ' (started by another pool)'
     logf = open(os.path.join(OUT, name + '.log'), 'a')
 
     def log(msg):
@@ -486,7 +489,7 @@ def parse_list(key, cast=str):
 if __name__ == '__main__':
     logging.basicConfig(format='%(asctime)s %(message)s', level=logging.WARNING)
     what = sys.argv[1] if len(sys.argv) > 1 else 'main'
-    workers = SG.getint('workers')
+    workers = int(os.environ.get('SIG_WORKERS', SG.getint('workers')))   # optional override
     seeds = list(range(SG.getint('n_seeds')))
     if what == 'main':
         jobs = []
@@ -502,7 +505,8 @@ if __name__ == '__main__':
         fn = run_sensitivity_job
     else:
         raise SystemExit('usage: signaling_do.py [main|sensitivity]')
-    # Interleave so that long jobs are spread over workers
+    if os.environ.get('SIG_REVERSE'):        # helper pool works from the end of the queue
+        jobs = jobs[::-1]
     print('{} jobs, {} workers, oracle={}, out={}'.format(len(jobs), workers, ALGO, OUT), flush=True)
     with multiprocessing.Pool(workers, maxtasksperchild=1) as pool:
         for msg in pool.imap_unordered(fn, jobs):
