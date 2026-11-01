@@ -4,3 +4,12 @@ __pycache__/
 *.err
 src/reward_balance.csv
 results/
+# signaling extension: run outputs / scratch (results/ stays ignored above
+# except the summary files force-added for the README)
+logs/
+runs/
+src/episode_rewards.csv
+src/smoke_original.conf
+model/converge/snort_1000_125_ddpg_do/
+model/converge/snort_1000_125_sac_do/
+model/converge/snort_1000_125_td3_do/
