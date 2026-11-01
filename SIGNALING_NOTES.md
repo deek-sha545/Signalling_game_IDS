@@ -76,3 +76,14 @@ No other existing file was modified. `project.conf` is untouched; a backup is in
 28. **Stratified type draws (restart as `full_v2`).** The first DDPG launch (`runs/full_ddpg/`, 14 jobs, NOT used) drew types i.i.d. per evaluation episode. Every job uses the same evaluation seed, so the 40-episode payoff-matrix sample was 65% stealthy and the 100-episode final sample 42% stealthy for every job. Stealthy episodes cost 7-20x more, so the restricted games were effectively solved under a 65/35 prior while the beliefs assume 50/50. Now `play()` uses exactly round(n x prior) episodes per type in random order. Cross-evaluation rows now also store the loss per type. The suite was restarted from scratch (sensitivity + main) under tag `full_v2`.
 29. **Snort does not discriminate between defenders (diagnosed, not changed).** The existing `make_investigation_feasible` rescales an allocation so the whole budget goes to alert types that have alerts. The stealthy type never raises alert type 2, so all budget lands on type 1 whatever the split. The noisy type is caught almost surely as soon as any budget reaches type 2 (no false alerts). Hence uniform/newest are already (near-)optimal for both types, every learned defender reproduces them, and the double oracle stops after 2 iterations. Snort results are reported as a non-discriminating instance. The type definitions were NOT changed to manufacture a difference.
 30. **Helper pool.** To finish faster, a second pool of 3 workers (env SIG_WORKERS=3 SIG_REVERSE=1 SIG_SKIP_STARTED=1) processes the job list from the end, skipping jobs the main pool has started. Results are identical per job (same seeds); at most a couple of jobs near the meeting point may be computed twice (the file write is atomic).
+
+31. **Why ZS_BLIND_attacker and SIG_attacker often give identical cross-evaluation losses.**
+    For suricata and fraud the dataset gains equal the losses, so the ZS_BLIND and SIG games are the
+    same game for the attacker; they differ only in what the defender sees. Both double-oracle runs
+    of one job use the same seed and start from the same defender (newest), so the first attacker
+    best responses are bit-identical networks (the logs show identical "it 0/it 1" lines). When both
+    equilibria put their weight on such shared, or equally saturated, attackers, every defender faces
+    exactly the same attack sequence under common random numbers, and the two rows coincide. In the
+    partial results at 18:45, 181 of 277 defender rows matched this way and 96 differed (mostly fraud).
+    This is expected behaviour, not an evaluation bug. It makes the SIG-vs-ZS_BLIND defender comparison
+    a comparison against a common attacker.
