@@ -438,6 +438,7 @@ def run_job(job):
                 r = S.play(g_ds, d, a, FINAL_EPISODES, MAX_EP_STEPS, GAMMA, EVAL_SEED + 100)
                 cross.append({'dataset': dataset, 'budget': budget, 'seed': seed, 'defender': dn,
                               'attacker': an, 'def_loss': float(r['def_loss'].mean()),
+                              'def_loss_by_type': [float(r['def_loss'][r['thetas'] == k].mean()) for k in range(g_ds.K)],
                               'atk_util_dataset_payoff': float(r['atk_util'].mean())})
         result['cross'] = cross
 

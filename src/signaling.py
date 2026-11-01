@@ -408,7 +408,14 @@ def play(game, def_policy, atk_policy, n_episodes, n_steps, gamma, seed, mode='o
     rs = np.random.get_state()
     np.random.seed(seed)
     if thetas is None:
-        thetas = np.random.choice(game.K, size=n_episodes, p=game.prior)
+        # STRATIFIED type draws: exactly round(n * prior) episodes of each type,
+        # in random order. An unstratified draw of 40 episodes can easily be
+        # 65/35 instead of 50/50, which would evaluate a different game.
+        counts = np.floor(n_episodes * game.prior).astype(int)
+        for k in np.argsort(-(n_episodes * game.prior - counts))[:n_episodes - counts.sum()]:
+            counts[k] += 1
+        thetas = np.repeat(np.arange(game.K), counts)
+        np.random.RandomState(seed + 104729).shuffle(thetas)
     def_loss, atk_util = np.zeros(n_episodes), np.zeros(n_episodes)
     alpha_sum = np.zeros((game.K, game.A))
     alpha_cnt = np.zeros(game.K)
