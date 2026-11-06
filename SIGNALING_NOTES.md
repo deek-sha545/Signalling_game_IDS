@@ -87,3 +87,9 @@ No other existing file was modified. `project.conf` is untouched; a backup is in
     partial results at 18:45, 181 of 277 defender rows matched this way and 96 differed (mostly fraud).
     This is expected behaviour, not an evaluation bug. It makes the SIG-vs-ZS_BLIND defender comparison
     a comparison against a common attacker.
+
+32. **End of the FULL run (2026-11-01 21:08).** All 90 main jobs had a result file. Two jobs
+    (suricata_500_s7, suricata_1000_s7) had been started a second time by the main pool at 20:50, the
+    overlap anticipated in decision 30. Their first runs finished and were saved at 20:57 and 21:00. DDPG
+    training is not bit-reproducible, so the duplicates would have overwritten valid results with slightly
+    different ones; they were stopped and the first results kept. No job failed.

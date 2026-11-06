@@ -1,10 +1,10 @@
 dataset,budget,n_with_belief_policy,n_without_belief_policy_in_support,mean_abs_diff_vs_exact_bayes,offpath_rate_defender,offpath_rate_exact,final_belief_on_true_type
-fraud,10,9,0,0.0691829,0,0,0.730613
-fraud,20,9,0,0.0633573,0,0,0.741768
-fraud,30,9,0,0.0229463,0,0,0.750279
-suricata,500,8,0,0,0,0,0.717194
-suricata,1000,9,0,0,0,0,0.717194
-suricata,1500,9,0,0,0,0,0.717194
+fraud,10,10,0,0.0721959,0,0,0.730708
+fraud,20,10,0,0.0700449,0,0,0.739326
+fraud,30,10,0,0.0206532,0,0,0.747443
+suricata,500,10,0,0,0,0,0.717194
+suricata,1000,10,0,0,0,0,0.717194
+suricata,1500,10,0,0,0,0,0.745474
 snort,500,0,10,,,,
 snort,1000,0,10,,,,
-snort,1500,0,9,,,,
+snort,1500,0,10,,,,
